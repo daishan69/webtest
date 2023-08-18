@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class CallbackTest {
 
     @Test
-    void shouldTest() throws InterruptedException{
+    void shouldTest() {
         open("http://localhost:9999");
         SelenideElement form = $(".form_theme_alfa-on-white");
 
@@ -17,7 +17,7 @@ public class CallbackTest {
         form.$("[data-test-id=phone] input").setValue("+79880000000");
         form.$("[data-test-id=agreement]").click();
         form.$(".button__content").click();
-        $(".Success_successBlock__2L3Cw").shouldHave(exactText("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время."));
+        $("[data-test-id=order-success]").shouldHave(exactText("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время."));
 
     }
 }
